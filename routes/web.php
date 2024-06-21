@@ -14,14 +14,16 @@ Route::get('/blog.html', function () {
     return view('blog');
 })->name('blog');
 
+
 Route::get('/contact.html', function () {
     return view('contact');
 })->name('contact');
 
+//Route::get('/contact.html', \App\Livewire\CreateContact::class)->name('contact');
+
 Route::get('/blog-single.html', function () {
     return view('post');
 });
-
 
 Route::group(['middleware' => ['web','auth']], function () {
         Route::get('/dashboard', []);
