@@ -39,12 +39,13 @@
       <div class="container">
         <div class="row mb-5 align-items-end">
           <div class="col-md-6" data-aos="fade-up">
-
             <h2>Contact Form</h2>
             <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.</p>
           </div>
-
         </div>
+
+
+
 
         <div class="row">
           <div class="col-md-4 ms-auto order-2" data-aos="fade-up">
@@ -63,7 +64,13 @@
               </li>
             </ul>
           </div>
+            @if (session()->has('contact-message'))
+                <div class="alert-success">{{ session()->get('message') }}</div>
+            @else
+                <livewire:create-contact />
+            @endif
 
+<!--
           <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
 
@@ -98,7 +105,7 @@
 
             </form>
           </div>
-
+-->
         </div>
       </div>
     </section>
