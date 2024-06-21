@@ -3,6 +3,13 @@
 @section('title', 'SoftLand\'s Blog')
 
 
+@section('header-media')
+    @parent
+
+    <!-- You may kill all css here -->
+
+@endsection
+
 @section('content')
 
 
