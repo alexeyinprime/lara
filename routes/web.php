@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+            'title'=>'Welcome to SoftLand']
+    );
 })->name('home');
-Route::get('/index.html', function () {
-    return view('welcome');
-});
+
+Route::redirect('index.html','/');
 
 Route::get('/blog.html', function () {
     return view('blog');
@@ -20,3 +21,12 @@ Route::get('/contact.html', function () {
 Route::get('/blog-single.html', function () {
     return view('post');
 });
+
+
+Route::group(['middleware' => ['web','auth']], function () {
+        Route::get('/dashboard', []);
+        Route::get('/profile',[]);
+        Route::get('/u/',[])->withoutMiddleware('auth');
+
+    }
+);
