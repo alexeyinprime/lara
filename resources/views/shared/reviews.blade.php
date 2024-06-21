@@ -5,12 +5,14 @@
             'review' => 'Все сделали как надо и не наебали!',
             'image' => 'person_1.jpg',
             'name' => 'John Doe',
+            'rate' => 5,
         ],
         [
             'title' => 'Вполне приличные ребята',
             'review' => 'Рожи славянские, взяли не дорого. Смело рекомендую',
             'image' => 'person_2.jpg',
             'name' => 'Яшка цыган',
+            'rate' => 4,
         ],
 ];
 
@@ -32,13 +34,7 @@
 @foreach($Testimonials as $t)
                             <div class="swiper-slide">
                                 <div class="review text-center">
-                                    <p class="stars">
-                                        <span class="bi bi-star-fill"></span>
-                                        <span class="bi bi-star-fill"></span>
-                                        <span class="bi bi-star-fill"></span>
-                                        <span class="bi bi-star-fill"></span>
-                                        <span class="bi bi-star-fill"></span>
-                                    </p>
+                                   <x-stars :count="5" :rate="$t['rate']" />
                                     <h3>{{ $t['title'] }}</h3>
                                     <blockquote>
                                         <p>{{ $t['review'] }}</p>
@@ -46,8 +42,8 @@
 
                                     <p class="review-user">
                                         <img src="assets/img/{{ $t['image'] }}" alt="Image" class="img-fluid rounded-circle mb-3">
-                                        <span class="d-block">
-                        <span class="text-black">{{ $t['name'] }}</span>
+                                        <span class="d-block"></span>
+                                        <span class="text-black">{{ $t['name'] }}</span>
                                     </p>
 
                                 </div>
